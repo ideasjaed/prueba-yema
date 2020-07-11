@@ -48,25 +48,26 @@ function App() {
   
   `;
   return (
-    <Router>
+    <Router basename="/prueba-yema">
       <Query query={query}>
         {({ loading, error, data }) => {
           if (loading) return <Loading />
           if (error) return <p>Error!</p>;
           return  <div className="App">
-            <Navegation />
-              <Switch>
-                <Route exact path="/about">
-                  <About datos={data} />
-                </Route>
-                <Route exact path="/">
-                  <Redirect to="/home/1" />
-                </Route>
-                <Route exact path="/home/:page">
-                  <Home data={data} onChangePage={page => handleChangePage(page)}/>
-                </Route>
+            
+              <Navegation />
+                <Switch>
+                  <Route exact path="/about">
+                    <About datos={data} />
+                  </Route>
+                  <Route exact path="/">
+                    <Redirect to="/home/1" />
+                  </Route>
+                  <Route exact path="/home/:page">
+                    <Home data={data} onChangePage={page => handleChangePage(page)}/>
+                  </Route>
+                </Switch>
 
-              </Switch>
          
         </div>
 
